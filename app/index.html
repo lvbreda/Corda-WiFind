@@ -40,7 +40,7 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
@@ -57,6 +57,7 @@
         <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
         <script src="bower_components/angular-leaflet/src/angular-leaflet-directive.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
@@ -73,6 +74,8 @@
         <script src="factory/socket.js"></script>
         <script src="service/people.js"></script>
         <script src="factory/geolocation.js"></script>
+        <script src="service/user.js"></script>
+        <script src="service/locations.js"></script>
         <!-- endbuild -->
 </body>
 </html>
