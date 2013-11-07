@@ -3,7 +3,7 @@
 angular.module('cordarrApp')
   .service('People',["Socket","$http", function People(Socket,$http) {
     var self = this;
-    var people = [];
+    self.people = [];
     self.init = function(){
     	$http.get("/api/people").success(function(res){
     		_.each(res,function(person){
@@ -13,11 +13,14 @@ angular.module('cordarrApp')
     	Socket.on("location_update",function(data){
     		for(var i in people){
     			if(people[i].username === data.username){
-    				people[i].location = data.location;
+    				people[i].ssid = data.ssid;
     				break;
     			}
     		}
     	})
+    }
+    self.getPeople = function(){
+    	return self.people;
     }
 
     return self;

@@ -22,7 +22,7 @@ exports.giveLocation = function(req,res){
 		username : "lander"
 	},{
 		$set : {
-			location : [req.body.lon,req.body.lat]
+			ssid : req.body.ssid
 		}
 	},function(err,result){
 		if (err) error(res,err); return;
@@ -32,9 +32,6 @@ exports.giveLocation = function(req,res){
 	})
 	io.sockets.emit('location_update', {
 		username : username,
-		location  :{
-			lon : req.body.lon,
-			lat : req.body.lat
-		}
+		ssid : req.body.ssid
 	});
 }

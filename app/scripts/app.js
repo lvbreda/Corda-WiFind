@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cordarrApp', [])
+angular.module('cordarrApp', ["leaflet-directive"])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
