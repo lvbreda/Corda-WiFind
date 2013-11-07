@@ -7,7 +7,7 @@ var error = function(res,err){
 	res.json(err);
 }
 exports.init = function(io){
-
+	io  = io;
 }
 exports.getPeople = function(req,res){
 	db.collection("people").find({

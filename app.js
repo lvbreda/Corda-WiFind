@@ -5,7 +5,7 @@ var app = express();
 var io = require('socket.io').listen(app);
 
 
-db = mongo.db(connection.uri + "/" + connection.dbname, {w:1});
+ 
 app.use(express.logger());
 
 // Configuration
