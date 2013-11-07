@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "~3.0.0",
-    "ejs": "~0.8.4"
+    "ejs": "~0.8.4",
+    "mongoskin" : "*",
+    "socket.io"  : "*",
+    "passport" : "*",
+    "passport-facebook" : "*"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
