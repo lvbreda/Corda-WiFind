@@ -1,0 +1,15 @@
+{
+    "locations": [
+        {
+            "name": "Butshok",
+            "ssid": "Bertus",
+            "url": "/images/links_verdiep0.png"
+        },
+        {
+            "name": "Vikingco",
+            "ssid": "Vikingco",
+            "url": "/images/links_verdiep3.png",
+            "beacon": "1-1"
+        }
+    ]
+}

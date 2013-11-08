@@ -75,6 +75,8 @@ app.get('/', function(request, response) {
   response.render('index.html')
 });
 
+locations.loadLocationsFromConfig();
+
 var port = process.env.PORT || 5000;
 server.listen(port, function() {
   console.log("Listening on " + port);

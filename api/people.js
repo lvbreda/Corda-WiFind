@@ -20,6 +20,8 @@ exports.giveLocation = function(req,res){
 	var username = req.body.username;
 	var picture = req.body.picture;
 
+	console.log('location:', req.body);
+
 	db.collection("people").findOne({username: username},function(err,person){
 		if(person){
 
@@ -31,8 +33,6 @@ exports.giveLocation = function(req,res){
 					beacon : req.body.beacon
 				}
 			},function(err,result){
-
-				
 				console.log("Aangekomen");
 				db.collection("locations").findOne({$or : [{ssid : req.body.ssid},{beacon : req.body.beacon}]},function(err,location){
 					
