@@ -17,16 +17,18 @@ exports.getPeople = function(req,res){
     });
 }
 exports.giveLocation = function(req,res){
+	console.log("giveLocation", req.body);
+
 	var username = req.body.username;
 	var picture = req.body.picture;
 
-	console.log('location:', req.body);
+	console.log(username, picture);
 
-	db.collection("people").findOne({username: username},function(err,person){
+	db.collection("people").findOne({username: req.body.username},function(err,person){
 		if(person){
 
 			db.collection("people").update({
-				username : username
+				username : req.body.username
 			},{
 				$set : {
 					ssid : req.body.ssid,
@@ -36,9 +38,11 @@ exports.giveLocation = function(req,res){
 				console.log("Aangekomen");
 				db.collection("locations").findOne({$or : [{ssid : req.body.ssid},{beacon : req.body.beacon}]},function(err,location){
 					
+					console.log("location", location);
+
 					if(location){
 						io.sockets.emit('location_update', {
-							username : username,
+							username : req.body.username,
 							ssid : req.body.ssid,
 							beacon : req.body.beacon
 						});
@@ -51,9 +55,11 @@ exports.giveLocation = function(req,res){
 			})
 			
 		}else{
+
+			console.log('no user found', req.body, req.body.username, req.body.picture);
 			db.collection("people").insert({
-				username : username,
-				picture : picture,
+				username : req.body.username,
+				picture : req.body.picture,
 				ssid : req.body.ssid,
 				beacon : req.body.beacon
 			},function(err,result){
@@ -61,8 +67,8 @@ exports.giveLocation = function(req,res){
 				db.collection("locations").findOne({$or : [{ssid : req.body.ssid},{beacon : req.body.beacon}]},function(err,location){
 					if(location){
 						io.sockets.emit('person_joined', {
-							username : username,
-							picture : picture,
+							username : req.body.username,
+							picture : req.body.picture,
 							ssid : req.body.ssid,
 							beack : req.body.beacon
 						});
@@ -75,5 +81,4 @@ exports.giveLocation = function(req,res){
 			
 		}
 	})
-	
 }
