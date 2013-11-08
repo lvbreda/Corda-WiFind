@@ -1,4 +1,5 @@
 {
+    "server": "http://local.com:5000",
     "locations": [
         {
             "name": "Butshok",
@@ -8,7 +9,7 @@
         {
             "name": "Vikingco",
             "ssid": "Vikingco",
-            "url": "/images/links_verdiep3.png",
+            "url": "/images/rechts_verdiep3.png",
             "beacon": "1-1"
         }
     ]

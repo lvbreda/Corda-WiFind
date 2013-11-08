@@ -38,9 +38,13 @@ var insertLocation = function(location, next){
 exports.loadLocationsFromConfig = function(req,res){
 	console.log("loadLocationsFromConfig");
 
+	// remove locations
+	db.collection("locations").remove(function(){});
+
 	var config = JSON.parse(fs.readFileSync('api/ssid_config.json'));
 	for (var i in config.locations){
 		var location = config.locations[i];
+		location.url = config.server + location.url;
 		insertLocation(location);
 	}
 }
